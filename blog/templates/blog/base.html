@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">  
+
+    {% if post.title %}
+        <title>CS Wiki | {{ post.title }}</title>
+    {% else %}
+        <title>{% block title %}{% endblock %}</title>
+    {% endif %}   
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'blog/favicon.png' %}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Montserrat Font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap" rel="stylesheet">
+    <!-- Lobster Font -->
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+    <!-- Righteous Font -->
+    <link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
+    <!-- Roboto Font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{% static 'blog/main.css' %}">
+
+</head>
+<body>
+
+    <div class="container">
+        
+        <nav id="navbar">
+            <h1><span>Cybersecurity</span>Wiki</h1>
+            
+            {% if user.is_authenticated %}
+                <div id="navbar-image">
+                    <img src="{{ user.profile.image.url }}">
+                </div>
+
+                <div id="new-post">
+                    <a href="{% url 'post-create' %}">New Post</a>
+                </div>
+
+                <div id="user-settings">
+                    <ul>
+                        <a href="{% url 'profile' %}"><li>Profile</li></a>
+                        <a href="{% url 'logout' %}"><li>Logout</li></a>
+                    </ul>
+                </div>
+            {% else %}
+                <div id="login-signup">
+                    <a href="{% url 'login' %}">Log In</a>
+                    <a href="{% url 'register' %}">Sign Up</a>
+                </div>
+            {% endif %}
+        </nav>
+
+        <nav id="sidebar">
+
+            <ul id=sidebar-icons>
+                <li><i class="fas fa-home" style="padding-right: 32px;"></i></li>
+                <li><i class="fas fa-info-circle" style="padding-right: 33px;"></i></li>
+                <li><i class="fas fa-file-alt" style="padding-right: 35px;"></i></li>
+                <li><i class="fas fa-atlas" style="padding-right: 34px;"></i></li>
+                <li><i class="fas fa-images" style="padding-right: 31px;"></i></li>
+                <li><i class="fas fa-users" style="padding-right: 31px;"></i></li>
+            </ul>
+
+            <ul id="sidebar-links">
+                <a href="{% url 'blog-home' %}"><li>Home</li></a>
+                <a href="{% url 'blog-about' %}"><li>About</li></a>
+                <a href="{% url 'blog-articles' %}"><li>Articles</li></a>
+                <a href="{% url 'blog-references' %}"><li>References</li></a>
+                <a href="{% url 'blog-gallery' %}"><li>Gallery</li></a>
+                <a href="{% url 'blog-team' %}"><li>Team</li></a>
+            </ul>
+
+        </nav>
+
+        <div id="contentbox">
+            {% block content %}{% endblock %}
+        </div>
+
+    </div> <!-- End of Container -->
+
+
+    <!-- JQuery JS-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Popper JS-->
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <!-- Bootstrap JS-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- Smooth Scroll-->
+    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15/dist/smooth-scroll.polyfills.min.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Font Awesome -->
+    <script type="text/javascript" src="https://kit.fontawesome.com/741946e2e6.js" crossorigin="anonymous"></script>
+    <!-- Main JS -->
+    <script src="{% static 'blog/main.js' %}"></script>
+</body>
+
+</html>

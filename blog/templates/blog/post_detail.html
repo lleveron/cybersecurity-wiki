@@ -1,0 +1,30 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block content %}
+
+    <img class="article-img" src="/media/{{ object.image }}">
+
+    <div id="inner-contentbox">
+        
+        <div class="section-header-row row">
+            <div class="article-header-col col-12 text-center">
+                {% if object.author == user %}
+                    <div class="update-delete">
+                        <a class="btn btn-outline-secondary mr-2" href="{% url 'post-update' object.id %}" data-aos="fade-up">Update</a>
+                        <a class="btn btn-outline-danger" href="{% url 'post-delete' object.id %}" data-aos="fade-up">Delete</a>
+                    </div>
+                {% endif %}
+                <h1 data-aos="fade-up" data-aos-delay="100">{{ object.title }}</h1>
+                <h2 data-aos="fade-up" data-aos-delay="200"><a href="{% url 'user-posts' object.author.username %}">{{ post.author.first_name }} {{ post.author.last_name }}</a> on {{ object.date_posted|date:"F j, Y" }}</h2>
+            </div>
+        </div>
+
+        <div class="row mb-5" data-aos="fade-up" data-aos-delay="300">
+            <div class="article-content-col col-12">
+                <p>{{ object.content|linebreaks }}</p>
+            </div>
+        </div>
+            
+        <!-- <img src="{{ object.author.profile.image.url }}"> -->
+    </div>
+{% endblock content %}

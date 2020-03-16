@@ -1,0 +1,50 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}
+    CS Wiki | {{ user.first_name }} {{ user.last_name }}
+{% endblock title%}
+{% block content %}
+
+    <div id="inner-contentbox" class="pt-0">
+
+        {% if messages %}
+            {% for message in messages%}
+                <div class="text-center alert alert-{{ message.tags }}" data-aos="slide-down">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <div id="profile" class="text-center mt-5">
+            <h1 data-aos="fade-up">My Profile</h1>
+
+            <div data-aos="fade-up" data-aos-delay="100">
+                <div id="profile-image" class="mt-5">
+                    <img src="{{ user.profile.image.url }}">
+                </div>
+            </div>
+
+            <h2 data-aos="fade-up" data-aos-delay="200">{{ user.first_name }} {{ user.last_name }}</h2>
+            <h3 data-aos="fade-up" data-aos-delay="300">({{ user.username }})</h3>
+            <h3 data-aos="fade-up" data-aos-delay="400">{{ user.email }}</h3>
+
+            <div class="btn btn-outline-dark mt-3" id="profile-btn" data-aos="fade-up" data-aos-delay="500">Edit</div>
+            
+        </div>
+
+        <div id="edit-profile">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <fieldset class="signup-fieldset">
+                    {{ u_form|crispy }}
+                    {{ p_form|crispy }}
+                </fieldset>
+                <div class="text-center">
+                    <button class="btn btn-outline-success mt-3 mb-5" type="submit">Update</button>
+                </div>
+            </form>
+        </div>
+        
+    </div>
+{% endblock content %}

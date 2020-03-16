@@ -1,0 +1,548 @@
+body{
+    overflow: hidden;
+    height: 100vh;
+    background: #0F2027;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.container{
+    overflow: hidden;
+    padding:0;
+    -webkit-box-shadow: 0px 0px 13px 3px rgba(0, 0, 0, 0.315);
+    -moz-box-shadow: 0px 0px 13px 3px rgba(0, 0, 0, 0.315);
+    box-shadow: 0px 0px 13px 3px rgba(0, 0, 0, 0.315);
+}
+
+.btn{
+    font-weight: 600;
+    border-radius: 30px;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+/* -------- Navigation Bars -------- */
+#navbar{
+    position: relative;
+    z-index: 100;
+    width: 100%;
+    height: 70px;
+    background-color: white;
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.500);
+    -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.500);
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.500);
+}
+
+#navbar h1{
+    position: relative;
+    transform: translateY(-50%);
+    top: 50%;
+    margin-left: 20px;
+    color: rgb(29, 29, 29);
+    font-family: "Lobster";
+    font-size: 20px;
+    float: left;
+}
+
+#navbar span{
+    font-family: "Righteous";
+    font-size: 40px;
+    color: rgb(0, 89, 141);
+}
+
+#navbar-image{
+    position: relative;
+    transform: translateY(-50%);
+    height: 50px; 
+    width: 50px;
+    border-radius: 100%;
+    top: 50%;
+    float: right;
+    margin-right: 30px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#navbar-image img{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: auto; 
+}
+
+#new-post{
+    position: relative;
+    transform: translateY(-50%);
+    float:right;
+    top: 50%;
+    margin-right: 30px;
+    font-weight: 500;
+    font-size: 17px;
+}
+
+#navbar a{
+    color: rgb(50, 50, 50);
+    transition: color .2s ease;
+}
+
+#navbar a:hover{
+    color: rgb(0, 94, 156);
+}
+
+#login-signup{
+    position: relative;
+    transform: translateY(-50%);
+    float:right;
+    top: 50%;
+    margin-right: 40px;
+}
+
+#login-signup a{
+    font-weight: 500;
+    font-size: 17px;
+    margin-right: 10px;
+}
+
+#login-signup a{
+    color: rgb(50, 50, 50);
+    transition: color .2s ease;
+}
+
+#login-signup a:hover{
+    color: rgb(0, 94, 156);
+}
+
+#user-settings{
+    position: absolute;
+    top: 70px;
+    right: 0;
+    z-index: 98;
+    height: 75px;
+    width: 120px;
+    -webkit-box-shadow: inset inset 0px 2px 5px 0px rgba(0, 0, 0, 0.500);
+    -moz-box-shadow: inset 0px 2px 5px 0px rgba(0, 0, 0, 0.500);
+    box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, 0.500);
+    background-color: rgb(73, 73, 73);
+    display: none;
+}
+
+#user-settings ul{
+    padding-top: 1px;
+    padding-left: 0px;   
+    text-decoration: none;
+    list-style: none;
+    text-align: center;
+    width: 100%;
+}
+
+#user-settings li{
+    font-weight: 500;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border-bottom: solid rgb(56, 56, 56) 1px;
+    cursor: pointer;
+    font-size: 16px;
+    color: rgb(226, 226, 226);
+}
+
+#user-settings li:hover{
+    background-color: rgb(94, 94, 94);
+}
+
+#user-settings a{
+    color: rgb(226, 226, 226);
+}
+
+#user-settings a:visited{
+    color: rgb(226, 226, 226);
+}
+
+#user-settings a:hover{
+    color: rgb(226, 226, 226);
+    text-decoration: none;
+}
+
+#sidebar{
+    position: absolute;
+    z-index: 99;
+    float: left;
+    width: 100px; 
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.800);
+    -webkit-box-shadow: 2px 0px 2px 0px rgba(0, 0, 0, 0.26);
+    -moz-box-shadow: 2px 0px 2px 0px rgba(0, 0, 0, 0.26);
+    box-shadow: 2px 0px 3px 0px rgba(0, 0, 0, 0.26);
+    transition: width .4s ease-in-out;
+    overflow: hidden;
+}
+
+#sidebar-links{
+    z-index: 99;
+    padding-top: 40px;
+    padding-left: 0px;
+    text-decoration: none;
+    list-style: none;
+    text-align: left;
+    width: 100%;
+    border-top: solid rgb(105, 105, 105) 1px;
+}
+
+#sidebar-links li{
+    color: rgb(226, 226, 226);
+    font-weight: 400;
+    font-size: 20px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 70px;
+    cursor: pointer;
+    border-bottom: solid rgb(45, 45, 45) 1px;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+}
+
+#sidebar-links a:hover{
+    text-decoration: none;
+    color: rgb(214, 214, 214);
+}
+
+#sidebar-icons{
+    position: absolute;
+    z-index: 98;
+    padding-top: 36px;
+    padding-left: 0px;
+    list-style: none;
+    top: 0;
+    right: 0;
+    text-align: right;
+}
+
+#sidebar-icons li{
+    color: rgb(226, 226, 226);
+    top: 0;
+    padding-top: 19px;
+    padding-bottom: 18px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+
+/* -------- Content Box -------- */
+#contentbox{
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+}
+
+#contentbox img{
+    width: 100%;
+    opacity: 1;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+   
+::-webkit-scrollbar-thumb {
+    background: rgb(39, 39, 39); 
+    border-radius: 10px;
+    
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(59, 59, 59); 
+}
+
+
+
+/* ------- Inner Content Box -------- */
+#inner-contentbox{
+    width: 70%;
+    margin-left: 19%;
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
+
+#inner-contentbox h1{
+    text-align: center;
+    color: rgb(29, 29, 29);
+    font-family: "Montserrat";
+}
+
+#inner-contentbox p{ /* FIXME You have to change "boxs" for "box"*/
+    text-align: left;
+    color: rgb(58, 58, 58);
+    font-size: 18px;
+    font-weight: lighter;
+    font-family: "Roboto";
+    line-height: 1.8;
+    word-spacing: 2px;
+}
+
+.section-header-row{
+    margin-bottom: 30px;
+}
+
+/* ------- Articles Page -------- */
+.articles-2x2-row{
+    margin: auto;
+}
+
+.articles-2x2-col{
+    max-width: 450px;
+    min-width: 400px;
+    height: 250px;
+    margin: auto;
+    margin-bottom: 30px;
+    padding: 0;
+}
+
+.articles-2x2-box{
+    padding: 40px 15px;
+    background-color: rgb(235, 235, 235);
+    border-radius: 30px;
+    width: 100%;
+    height: 100%;
+    box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.356);
+}
+
+.articles-2x2-box img{
+    max-width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 100%;
+    margin-bottom: 10px;
+}
+
+.articles-2x2-box h1{
+   font-size: 22px;
+}
+
+.articles-2x2-box p{
+    text-align: center;
+    font-size: 15px;
+ }
+
+/* ------- Articles Detail Page -------- */
+.article-img{
+    width: 100%;
+    max-height: 700px;
+}
+
+.update-delete{
+    position: relative;
+    transform: translateY(-70%);
+}
+
+.article-header-col h1{
+    text-align: center;
+    color: rgb(29, 29, 29);
+    font-family: "Montserrat";
+}
+
+.article-header-col h2{
+    margin-top: 20px;
+    font-family: "Roboto";
+    font-size: 16px;
+    color: rgb(80, 80, 80);
+}
+
+.article-header-col h2 a{
+    color: rgb(0, 116, 184);
+}
+
+.article-header-col h2 a:hover{
+    color: rgb(0, 48, 77);
+}
+
+.article-content-col p{
+    text-indent: 50px;
+    margin: 20px 100px;
+}
+
+/* ------- User's Posts Page -------- */
+
+
+/* ------- Profile Page -------- */
+.team-row{
+    margin: auto;
+}
+
+.team-col{
+    max-width: 300px;
+    min-width: 250px;
+    height: 230px;
+    margin: auto;
+    margin-top: 55px;
+    margin-bottom: 20px;
+    padding: 0;
+}
+
+.team-box{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(78, 78, 78);
+    border-left: solid rgb(0, 102, 150) 6px;
+    border-right: solid rgb(0, 102, 150) 6px;
+    border-radius: 10px;
+    box-shadow: -5px 7px 15px rgba(0, 0, 0, 0.322);
+    transition: transform .3s ease;
+}
+
+.team-box:hover{
+    transform: scale(1.05);
+}
+
+.team-box img{
+    position: absolute;
+    transform: translate(-50%, -40%);
+    max-width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 100%;
+    border: solid rgb(0, 102, 150) 6px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.459);
+}
+
+.team-box h2{
+    color: white;
+    font-size: 22px;
+    font-family: "Roboto",sans-serif;
+    padding-top: 90px;
+}
+
+.team-box h3{
+    color: rgb(209, 209, 209);
+    font-size: 16px;
+    font-family: "Roboto",sans-serif;
+}
+
+.team-box a{
+    position: absolute;
+    transform: translateX(-50%);
+    bottom: 30px;
+    color: white;
+    border: solid white 2px;
+    border-radius: 30px;
+    padding: 4px 13px;
+    transition: .2s ease;
+    font-weight: bold;
+}
+
+.team-box a:hover{
+    background-color: white;
+    color: rgb(78, 78, 78);
+}
+
+
+
+
+
+
+
+
+
+/* ------- Login and Sign Up Page -------- */
+#login-fieldset{
+    width: 200px; 
+    position: relative; 
+    transform: translateX(-50%); 
+    left: 50%;
+}
+
+#login-text p{
+    width: 100%;
+    text-align: center;
+    text-indent: 0;
+}
+
+#login-text a{
+    color: rgb(0, 108, 197);
+    font-weight: 400;
+    transition: color .1s ease;
+}
+
+#login-text a:hover{
+    color: rgb(19, 64, 100);
+}
+
+#signup-fieldset{
+    width: 400px; 
+    position: relative; 
+    transform: translateX(-50%); 
+    left: 50%;
+}
+
+/* ------- Profile Page -------- */
+#profile{
+}
+
+#profile h1{
+ 
+}
+
+#profile-image{
+    position: relative;
+    transform: translateX(-50%);
+    height: 150px; 
+    width: 150px;
+    border-radius: 100%;
+    left: 50%;
+    overflow: hidden;
+}
+
+#profile-image img{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    width: 150px;
+    height: auto; 
+}
+
+#profile h2{
+    margin-top: 10px;
+    text-align: center;
+    font-size: 24px;
+    color: rgb(48, 48, 48);
+}
+
+#profile h3{
+    text-align: center;
+    font-size: 18px;
+    color: rgb(90, 90, 90);
+}
+
+#edit-profile{
+    position: relative;
+    height: auto;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    display: none;
+}
+
+/* ------- Media Queries -------- */
+@media (min-width: 1500px){
+    .container {
+          max-width: 1500px;
+    }
+}
+
+@media (max-width: 1499px){
+    .container {
+          min-width: 100%;
+    }
+}

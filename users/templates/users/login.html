@@ -1,0 +1,40 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}
+    CS Wiki | Log In
+{% endblock title%}
+{% block content %}
+
+    <div id="inner-contentbox" class="pt-0">
+
+        {% if messages %}
+            {% for message in messages%}
+                <div class="text-center alert alert-{{ message.tags }}" data-aos="slide-down">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    
+        <div id="login" class="mt-5">
+            <form method="POST">
+                {% csrf_token %}
+                <legend class="text-center mb-4" data-aos="fade-up">Log In</legend>
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <fieldset id="login-fieldset">
+                        {{ form|crispy }}
+                    </fieldset>
+                </div>
+                <div class="text-center mt-2" data-aos="fade-up" data-aos-delay="200">
+                    <button class="btn btn-outline-dark" type="submit">Log In</button>
+                </div>
+            </form>
+
+            <div id="login-text" class="text-center mt-5">
+                <p data-aos="fade-up" data-aos-delay="300">Don't have an account? <a href="{% url 'register' %}">Sign Up</a></p>
+                <p data-aos="fade-up" data-aos-delay="400">Forgot your password? <a href="{% url 'password_reset' %}">Reset Password</a></p>
+            </div>
+        </div>
+
+    </div>
+    
+{% endblock content %}

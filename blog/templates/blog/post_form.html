@@ -1,0 +1,21 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}
+    CS Wiki | Create Post
+{% endblock title%}
+{% block content %}
+
+    <div id="inner-contentbox">
+        <form enctype='multipart/form-data' method="POST">
+            {% csrf_token %}
+            <legend class="text-center" data-aos="fade-up">Create Article</legend>
+            <fieldset data-aos="fade-up" data-aos-delay="100">
+                {{ form|crispy }}
+            </fieldset>
+            <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                <button class="btn btn-outline-success" type="submit">Create</button>
+            </div>
+        </form>
+    </div>
+    
+{% endblock content %}

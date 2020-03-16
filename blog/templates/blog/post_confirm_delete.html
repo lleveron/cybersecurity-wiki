@@ -1,0 +1,21 @@
+{% extends "blog/base.html" %}
+{% block title %}
+    CS Wiki | Confirm
+{% endblock title%}
+{% block content %}
+
+    <div id="inner-contentbox">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="text-center">
+                <legend class="text-center mb-5" data-aos="fade-up">Delete Post</legend>
+                <h2 data-aos="fade-up" data-aos-delay="100">Are you sure you want to delete this post:</br>"{{ object.title }}"?</h2>
+            </fieldset>
+            <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="200">
+                <button  class="btn btn-outline-danger" type="submit">Yes, delete it. </button>
+                <a href="{% url 'post-detail' object.id %}" class="btn btn-outline-secondary">Nvm.</a>
+            </div>
+        </form>
+    </div>
+    
+{% endblock content %}
