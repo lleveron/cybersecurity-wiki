@@ -143,9 +143,9 @@ EMAIL_USE_TLS=True
 EMAIL_HOST_USER=os.environ.get('wiki_email_user')
 EMAIL_HOST_PASSWORD=os.environ.get('wiki_email_password')
 
-AWS_ACCESS_KEY_ID=os.environ.get('aws_access_key_id')
-AWS_SECRET_ACCESS_KEY=os.environ.get('aws_secret_access_key')
-AWS_STORAGE_BUCKET_NAME=os.environ.get('aws_storage_bucket_name')
+AWS_ACCESS_KEY_ID='AKIA6KBG3TTU7PR5AXAR'
+AWS_SECRET_ACCESS_KEY='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'
+AWS_STORAGE_BUCKET_NAME='cybersecurity-wiki'
 AWS_S3_FILE_OVERWRITE=False
 AWS_DEFAULT_ACL=None
 DEFAULT_FILE_STORAGE='storages.backends.s3boto3.S3Boto3Storage'
