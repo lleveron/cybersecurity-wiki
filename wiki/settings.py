@@ -125,31 +125,29 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = '/static/'
+STATIC_ROOT=os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL='/static/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
+MEDIA_ROOT=os.path.join(BASE_DIR, 'media')
+MEDIA_URL='/media/'
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_TEMPLATE_PACK='bootstrap4'
 
-LOGIN_REDIRECT_URL = 'blog-home'
-LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL='blog-home'
+LOGIN_URL='login'
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS= True
-EMAIL_HOST_USER = os.environ.get('wiki_email_user')
-EMAIL_HOST_PASSWORD = os.environ.get('wiki_email_password')
+EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_PORT=587
+EMAIL_USE_TLS=True
+EMAIL_HOST_USER=os.environ.get('wiki_email_user')
+EMAIL_HOST_PASSWORD=os.environ.get('wiki_email_password')
 
-AWS_ACCESS_KEY_ID = os.environ.get('aws_access_key_id')
-AWS_SECRET_ACCESS_KEY = os.environ.get('aws_secret_access_key')
-AWS_STORAGE_BUCKET_NAME = os.environ.get('aws_storage_bucket_name')
-AWS_S3_FILE_OVERWRITE = False
-AWS_DEFAULT_ACL = None
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-AWS_S3_REGION_NAME = 'us-east-2'
-AWS_S3_SIGNATURE_VERSION = 's3v4'
+AWS_ACCESS_KEY_ID=os.environ.get('aws_access_key_id')
+AWS_SECRET_ACCESS_KEY=os.environ.get('aws_secret_access_key')
+AWS_STORAGE_BUCKET_NAME=os.environ.get('aws_storage_bucket_name')
+AWS_S3_FILE_OVERWRITE=False
+AWS_DEFAULT_ACL=None
+DEFAULT_FILE_STORAGE='storages.backends.s3boto3.S3Boto3Storage'
 
 django_heroku.settings(locals())
