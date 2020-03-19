@@ -757,12 +757,15 @@ a:hover{
 
 @media (max-width: 768px) {
     #inner-contentbox{
-        width: 100%;
+        width: 100vw;
         margin: auto;
         padding-left: 30px;
         padding-right: 30px;
     }
 
+    ::-webkit-scrollbar {
+        width: 0px;
+    }
     .article-content-col p{
         margin: 20px 30px;
     }
@@ -771,13 +774,17 @@ a:hover{
         padding: 0px 30px;
     }
 
+    #signup-fieldset{
+        width: 100%;
+    }
+
     .team-col{
         max-width: 200px;
         min-width: 200px;
     }
 
     .swiper-container{
-        height: 300px;
+        height: 200px;
     }
 
     .swiper-button-prev{
