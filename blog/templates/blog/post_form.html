@@ -5,17 +5,18 @@
 {% endblock title%}
 {% block content %}
 
+<div id="contentbox">
     <div id="inner-contentbox">
-        <form enctype='multipart/form-data' method="POST">
+        <legend class="text-center" data-aos="fade-up">Create Article</legend>
+        <form enctype='multipart/form-data' method="POST" data-aos="fade-up" data-aos-delay="100">
             {% csrf_token %}
-            <legend class="text-center" data-aos="fade-up">Create Article</legend>
-            <fieldset data-aos="fade-up" data-aos-delay="100">
+            <fieldset>
                 {{ form|crispy }}
             </fieldset>
-            <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+            <div class="text-center">
                 <button class="btn btn-outline-success" type="submit">Create</button>
             </div>
         </form>
     </div>
-    
+</div>
 {% endblock content %}

@@ -4,6 +4,7 @@
 {% endblock title%}
 {% block content %}
 
+<div id="contentbox">
     <div id="inner-contentbox">
 
         <div class="section-header-row row" data-aos="fade-up">
@@ -12,13 +13,14 @@
             </div>
         </div>
 
-        <div class="articles-2x2-row row" data-aos="fade-up" data-aos-delay="100">
+        <div class="articles-row row mt-5" data-aos="fade-up" data-aos-delay="100">
             {% for post in posts %}
-                <div class="articles-2x2-col col-6"> 
-                    <div class="articles-2x2-box text-center">
-                        <img src="{{ post.author.profile.image.url }}">
+                <div class="articles-col col-6"> 
+                    <div class="articles-box text-center">
+                        <a href="{% url 'post-detail' post.id %}"><img src="{{ post.image.url }}"></a>
                         <a href="{% url 'post-detail' post.id %}"><h1>{{ post.title }}</h1></a>
-                        <p>By <a href="{% url 'user-posts' post.author.username %}">{{ post.author.first_name }} {{ post.author.last_name }}</a> on {{ post.date_posted|date:"F j, Y" }}</p>
+                        <p>By <a href="{% url 'user-posts' post.author.username %}">{{ post.author.first_name }} {{ post.author.last_name }}</a></p>
+                        <!-- <img src="{{ post.author.profile.image.url }}"> -->
                         <!-- <p>{{ post.content }}</p> -->
                     </div>
                 </div>
@@ -26,32 +28,33 @@
         </div>
 
         {% if is_paginated %}
-            <div class="pagination-row row pt-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="pagination-row row mt-4">
                 <div class="pagination-col col-12 text-center">
                     {% if page_obj.has_previous %}
-                    <a class="btn btn-outline-info" href="?page=1">First</a>
-                    <a class="btn btn-outline-info" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                    <a class="btn btn-outline-dark" href="?page=1">First</a>
+                    <a class="btn btn-outline-dark" href="?page={{ page_obj.previous_page_number }}">Previous</a>
                 {% endif %}
-    
+
                 {% for num in page_obj.paginator.page_range %}
-    
+
                     {% if page_obj.number == num %}
-                        <a class="btn btn-info" href="?page={{ num }}">{{ num }}</a>
+                        <a class="btn btn-outline-dark" href="?page={{ num }}">{{ num }}</a>
                         
                         {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
-                            <a class="btn btn-outline-info" href="?page={{ num }}">{{ num }}</a>
-    
+                            <a class="btn btn-outline-dark" href="?page={{ num }}">{{ num }}</a>
+
                     {% endif %}
-    
+
                 {% endfor %}
-    
+
                 {% if page_obj.has_next %}
-                    <a class="btn btn-outline-info" href="?page={{ page_obj.next_page_number }}">Next</a>
-                    <a class="btn btn-outline-info" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+                    <a class="btn btn-outline-dark" href="?page={{ page_obj.next_page_number }}">Next</a>
+                    <a class="btn btn-outline-dark" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
                 {% endif %}
                 </div>
             </div>
         {% endif %}
 
     </div>
+</div>
 {% endblock content %}

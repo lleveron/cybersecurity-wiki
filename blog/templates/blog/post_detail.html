@@ -2,7 +2,9 @@
 {% load static %}
 {% block content %}
 
-    <img class="article-img" src="/media/{{ object.image }}">
+<div id="contentbox" style="background-image: none;">
+
+    <img class="article-img" src="{{ post.image.url }}">
 
     <div id="inner-contentbox">
         
@@ -19,12 +21,22 @@
             </div>
         </div>
 
-        <div class="row mb-5" data-aos="fade-up" data-aos-delay="300">
+        
+        <div class="row" data-aos="fade-up" data-aos-delay="300">
             <div class="article-content-col col-12">
                 <p>{{ object.content|linebreaks }}</p>
+                {% if object.citation %}
+                <h1>References:</h1>
+                <h2>{{ object.citation|linebreaks }}</h2>
+                {% endif %}
             </div>
         </div>
-            
-        <!-- <img src="{{ object.author.profile.image.url }}"> -->
+
+        <div class="row" style="height: 50px;">
+            <div class="col-12"></div>
+        </div>
+
     </div>
+
+</div>
 {% endblock content %}

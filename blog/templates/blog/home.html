@@ -4,11 +4,41 @@
 {% endblock title%}
 {% block content %}
 
-<div id="inner-contentbox">
-    <div id="home">
-        <h1 data-aos="fade-up">Welcome to the Cybersecurity Wiki</h1>
-        <p  data-aos="fade-up" data-aos-delay="100">Cybersecurity is the state of being protected against the criminal or unauthorized use of electronic data, or the measures taken to achieve this.</p>
+<div id="contentbox">
+    <div id="inner-contentbox">
+
+        <div class="section-header-row row" data-aos="fade-up">
+            <div class="col-12">
+                <h1>Welcome to the Cybersecurity Wiki.</h1>
+            </div>
+        </div>
+
+        <div class="home-description-row row mt-5" data-aos="fade-up" data-aos-delay="100">
+            <div class="home-col col-12 text-center">
+                <p class="content">Cybersecurity is the state of being protected against the criminal or unauthorized use of electronic data, or the measures taken to achieve this.</p>
+            </div>
+        </div>
+        
+        <div class="home-row row mt-5" data-aos="fade-up" data-aos-delay="200">
+            <div class="home-col col-12 text-center">
+                <h2>Latest Posts:</h2>
+            </div>
+        </div>
+
+        <div class="recent-row row mt-5" data-aos="fade-up" data-aos-delay="300">
+            {% for post in posts %}
+                <div class="recent-col col-4"> 
+                    <div class="articles-box text-center">
+                        <a href="{% url 'post-detail' post.id %}"><img src="{{ post.image.url }}"></a>
+                        <a href="{% url 'post-detail' post.id %}"><h1 style="padding: 0px 20px; font-size: 20px;">{{ post.title }}</h1></a>
+                        <p style="font-size: 14px;">By <a href="{% url 'user-posts' post.author.username %}">{{ post.author.first_name }} {{ post.author.last_name }}</a></p>
+                        <!-- <img src="{{ post.author.profile.image.url }}"> -->
+                        <!-- <p>{{ post.content }}</p> -->
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
     </div>
 </div>
-    
 {% endblock content %}

@@ -4,22 +4,28 @@
 {% endblock title%}
 {% block content %}
 
-<div id="inner-contentbox">
-    <div id="team">
-        <h1 data-aos="fade-up">Our Writers</h1>
-    </div>
-
-    <div class="row team-row mt-4" data-aos="fade-up" data-aos-delay="100">
-        {% for user in users %}
-            <div class="team-col col-4"> 
-                <div class="team-box text-center">
-                    <img src="{{ user.profile.image.url }}">
-                    <h2>{{ user.first_name }} {{ user.last_name }}</h2>
-                    <h3>( {{ user.username }} )</h3>
-                    <a href="{% url 'user-posts' user.username %}">Posts</a>
-                </div>
+<div id="contentbox">
+    <div id="inner-contentbox">
+        
+        <div class="section-header-row row" data-aos="fade-up">
+            <div class="col-12">
+                <h1>Our Team</h1>
             </div>
-        {% endfor %}
+        </div>
+        
+        <div class="row team-row mt-5" data-aos="fade-up" data-aos-delay="100">
+            {% for user in users %}
+                <div class="team-col col-4"> 
+                    <div class="team-box text-center">
+                        <img src="{{ user.profile.image.url }}">
+                        <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+                        <h3>{{ user.username }}</h3>
+                        <a href="{% url 'user-posts' user.username %}">Posts</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        
     </div>
 </div>
 

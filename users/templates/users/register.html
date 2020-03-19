@@ -5,20 +5,18 @@
 {% endblock title%}
 {% block content %}
 
+<div id="contentbox">
     <div id="inner-contentbox">
-        <form method="POST">
+        <legend class="text-center mb-4" data-aos="fade-up">Register</legend>
+        <form method="POST" data-aos="fade-up" data-aos-delay="100">
             {% csrf_token %}
-            <legend class="text-center mb-4" data-aos="fade-up">Register</legend>
-            <div data-aos="fade-up" data-aos-delay="100">
-                <fieldset id="signup-fieldset">
-                    {{ form|crispy }}
-                </fieldset>
-            </div>
-            <div class="text-center mt-2" data-aos="fade-up" data-aos-delay="200">
+            <fieldset id="signup-fieldset">
+                {{ form|crispy }}
+            </fieldset>
+            <div class="text-center mt-2">
                 <button class="btn btn-outline-dark" type="submit">Sign Up</button>
             </div>
         </form>
-
     </div>
-    
+</div>
 {% endblock content %}

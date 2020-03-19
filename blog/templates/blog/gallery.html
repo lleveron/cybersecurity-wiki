@@ -4,11 +4,33 @@
 {% endblock title%}
 {% block content %}
 
+<div id="contentbox">
     <div id="inner-contentbox">
-        <div id="gallery">
-            <h1 data-aos="fade-up">Welcome to the Gallery Page</h1>
-            <p data-aos="fade-up" data-aos-delay="100">This is the gallery page.</p>
-        </div>
-    </div>
 
+        <div class="section-header-row row" data-aos="fade-up">
+            <div class="col-12">
+                <h1>Gallery</h1>
+            </div>
+        </div>
+
+        <div class="swiper-container" data-aos="fade-up" data-aos-delay="100">
+   
+            <div class="swiper-wrapper">
+                {% for post in posts %}
+                    <div class="swiper-slide">
+                        <img src="{{ post.image.url }}">
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+        
+        <div class="row mt-2" data-aos="fade-up" data-aos-delay="200">
+            <div class="col-12 text-center">
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+
+    </div>
+</div>
 {% endblock content %}

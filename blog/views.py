@@ -5,8 +5,12 @@ from django.contrib.auth.models import User
 from .models import Post
 
 # Create your views here.
-def home(request):
-    return render(request, 'blog/home.html')
+class PostHomeView(ListView):
+    model = Post
+    template_name = 'blog/home.html'
+    context_object_name = 'posts'
+    ordering = ['-date_posted']
+    paginate_by = 3
 
 def about(request):
     return render(request, 'blog/about.html')
@@ -42,6 +46,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
     fields = [
         'title',
         'content',
+        'citation',
         'image'
     ]
     
@@ -54,7 +59,8 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     fields = [
         'title',
         'content',
-        'image'
+        'citation',
+        'image',
     ]
 
     def form_valid(self, form):
@@ -77,11 +83,18 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
             return True
         return False
 
-def references(request):
-    return render(request, 'blog/references.html')
+class PostReferencesView(ListView):
+    model = Post
+    template_name = 'blog/references.html'
+    context_object_name = 'posts'
+    ordering = ['-date_posted']
+    paginate_by = 4
 
-def gallery(request):
-    return render(request, 'blog/gallery.html')
+class PostGalleryView(ListView):
+    model = Post
+    template_name = 'blog/gallery.html'
+    context_object_name = 'posts'
+    ordering = ['-date_posted']
 
 class UserListView(ListView):
     model = User

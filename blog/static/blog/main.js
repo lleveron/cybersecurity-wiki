@@ -13,6 +13,30 @@ $( document ).ready(function() {
         $("#sidebar-icons").stop().fadeIn();
     }
     
+    // Swiper Config
+    var mySwiper = new Swiper ('.swiper-container', {
+
+        // Optional parameters
+        direction: 'horizontal',
+        loop: true,
+        speed: 700,
+        effect: 'slide',
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+        },
+        slidesPerView: 1,
+        autoheight: true,
+
+        // If we need pagination
+        pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+        type: 'bullets',
+        },
+
+    });
+
     //AOS Config
     AOS.init({
         once: true,
@@ -31,6 +55,16 @@ $( document ).ready(function() {
         $(this).css("background-color","rgba(226, 226, 226, 0.11)");
     }, function(){
         $(this).css("background-color","");
+    })
+
+    //Mobile Side Bar Show/Hide
+    $("#mobile-menu").click(function(){
+        $("#mobile-sidebar").toggleClass("open");
+    })
+
+    $("#contentbox").click(function(){
+        $("#mobile-sidebar").removeClass("open");
+        $("#user-settings").slideUp(300);
     })
 
     //User Settings Show/Hide

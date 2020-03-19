@@ -37,7 +37,8 @@
     <div class="container">
         
         <nav id="navbar">
-            <h1><span>Cybersecurity</span>Wiki</h1>
+            <h1 class="d-none d-md-block"><span>CyberSecurity</span>Wiki</h1>
+            <img src="{% static 'blog/menu.png' %}" id="mobile-menu" class="d-md-none"></img>
             
             {% if user.is_authenticated %}
                 <div id="navbar-image">
@@ -62,7 +63,7 @@
             {% endif %}
         </nav>
 
-        <nav id="sidebar">
+        <nav id="sidebar" class="d-none d-md-block">
 
             <ul id=sidebar-icons>
                 <li><i class="fas fa-home" style="padding-right: 32px;"></i></li>
@@ -84,9 +85,20 @@
 
         </nav>
 
-        <div id="contentbox">
-            {% block content %}{% endblock %}
-        </div>
+        <nav id="mobile-sidebar" class="d-md-none">
+
+            <ul id="mobile-sidebar-links">
+                <a href="{% url 'blog-home' %}"><li>Home</li></a>
+                <a href="{% url 'blog-about' %}"><li>About</li></a>
+                <a href="{% url 'blog-articles' %}"><li>Articles</li></a>
+                <a href="{% url 'blog-references' %}"><li>References</li></a>
+                <a href="{% url 'blog-gallery' %}"><li>Gallery</li></a>
+                <a href="{% url 'blog-team' %}"><li>Team</li></a>
+            </ul>
+
+        </nav>
+
+        {% block content %}{% endblock %}
 
     </div> <!-- End of Container -->
 
