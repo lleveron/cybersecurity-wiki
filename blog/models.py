@@ -3,6 +3,7 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from django.urls import reverse
 from django.contrib import messages
+from PIL import Image
 
 
 # Create your models here.
