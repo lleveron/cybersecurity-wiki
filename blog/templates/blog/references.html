@@ -13,18 +13,20 @@
             </div>
         </div>
 
-        {% for post in posts %}
-        <div class="references-row row mt-3" data-aos="fade-up" data-aos-delay="100">
-            <div class="references-col col-12"> 
-                <h1>"<a href="{% url 'post-detail' post.id %}">{{ post.title }}"</a></h1>
+        <div data-aos="fade-up">
+            {% for post in posts %}
+            <div class="references-row row mt-3">
+                <div class="references-col col-12"> 
+                    <h1>"<a href="{% url 'post-detail' post.id %}">{{ post.title }}"</a></h1>
+                </div>
             </div>
-        </div>
-        <div class="references-row row" data-aos="fade-up" data-aos-delay="100">
-            <div class="references-col col-12"> 
-                <p>{{ post.citation|linebreaks }}</p>
+            <div class="references-row row">
+                <div class="references-col col-12"> 
+                    <p>{{ post.citation|linebreaks }}</p>
+                </div>
             </div>
+            {% endfor %}
         </div>
-        {% endfor %}
 
         {% if is_paginated %}
             <div class="pagination-row row mt-5">
