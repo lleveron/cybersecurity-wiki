@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -9,19 +10,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=0.9, minimum-scale=0.9, shrink-to-fit=no">
 
     {% if post.title %}
-        <title>CS Wiki | {{ post.title }}</title>
+    <title>CS Wiki | {{ post.title }}</title>
     {% else %}
-        <title>{% block title %}{% endblock %}</title>
-    {% endif %}   
+    <title>{% block title %}{% endblock %}</title>
+    {% endif %}
 
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'blog/favicon.png' %}">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <!-- AOS CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Montserrat Font -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap" rel="stylesheet">
     <!-- Lobster Font -->
@@ -34,34 +35,39 @@
     <link rel="stylesheet" href="{% static 'blog/main.css' %}">
 
 </head>
+
 <body>
 
     <div class="container">
-        
+
         <nav id="navbar">
             <h1 class="d-none d-md-block"><span>CyberSecurity</span>Wiki</h1>
             <img src="https://i.ibb.co/LnLkjJH/menu.png" id="mobile-menu" class="d-md-none"></img>
-            
+
             {% if user.is_authenticated %}
-                <div id="navbar-image">
-                    <img src="{{ user.profile.image.url }}">
-                </div>
+            <div id="navbar-image">
+                <img src="{{ user.profile.image.url }}">
+            </div>
 
-                <div id="new-post">
-                    <a href="{% url 'post-create' %}">New Post</a>
-                </div>
+            <div id="new-post">
+                <a href="{% url 'post-create' %}">New Post</a>
+            </div>
 
-                <div id="user-settings">
-                    <ul>
-                        <a href="{% url 'profile' %}"><li>Profile</li></a>
-                        <a href="{% url 'logout' %}"><li>Logout</li></a>
-                    </ul>
-                </div>
+            <div id="user-settings">
+                <ul>
+                    <a href="{% url 'profile' %}">
+                        <li>Profile</li>
+                    </a>
+                    <a href="{% url 'logout' %}">
+                        <li>Logout</li>
+                    </a>
+                </ul>
+            </div>
             {% else %}
-                <div id="login-signup">
-                    <a href="{% url 'login' %}">Log In</a>
-                    <a href="{% url 'register' %}">Sign Up</a>
-                </div>
+            <div id="login-signup">
+                <a href="{% url 'login' %}">Log In</a>
+                <a href="{% url 'register' %}">Sign Up</a>
+            </div>
             {% endif %}
         </nav>
 
@@ -77,12 +83,24 @@
             </ul>
 
             <ul id="sidebar-links">
-                <a href="{% url 'blog-home' %}"><li>Home</li></a>
-                <a href="{% url 'blog-about' %}"><li>About</li></a>
-                <a href="{% url 'blog-articles' %}"><li>Articles</li></a>
-                <a href="{% url 'blog-references' %}"><li>References</li></a>
-                <a href="{% url 'blog-gallery' %}"><li>Gallery</li></a>
-                <a href="{% url 'blog-team' %}"><li>Team</li></a>
+                <a href="{% url 'blog-home' %}">
+                    <li>Home</li>
+                </a>
+                <a href="{% url 'blog-about' %}">
+                    <li>About</li>
+                </a>
+                <a href="{% url 'blog-articles' %}">
+                    <li>Articles</li>
+                </a>
+                <a href="{% url 'blog-references' %}">
+                    <li>References</li>
+                </a>
+                <a href="{% url 'blog-gallery' %}">
+                    <li>Gallery</li>
+                </a>
+                <a href="{% url 'blog-team' %}">
+                    <li>Team</li>
+                </a>
             </ul>
 
         </nav>
@@ -90,12 +108,24 @@
         <nav id="mobile-sidebar" class="d-md-none">
 
             <ul id="mobile-sidebar-links">
-                <a href="{% url 'blog-home' %}"><li>Home</li></a>
-                <a href="{% url 'blog-about' %}"><li>About</li></a>
-                <a href="{% url 'blog-articles' %}"><li>Articles</li></a>
-                <a href="{% url 'blog-references' %}"><li>References</li></a>
-                <a href="{% url 'blog-gallery' %}"><li>Gallery</li></a>
-                <a href="{% url 'blog-team' %}"><li>Team</li></a>
+                <a href="{% url 'blog-home' %}">
+                    <li>Home</li>
+                </a>
+                <a href="{% url 'blog-about' %}">
+                    <li>About</li>
+                </a>
+                <a href="{% url 'blog-articles' %}">
+                    <li>Articles</li>
+                </a>
+                <a href="{% url 'blog-references' %}">
+                    <li>References</li>
+                </a>
+                <a href="{% url 'blog-gallery' %}">
+                    <li>Gallery</li>
+                </a>
+                <a href="{% url 'blog-team' %}">
+                    <li>Team</li>
+                </a>
             </ul>
 
         </nav>
@@ -114,7 +144,7 @@
     <!-- Smooth Scroll-->
     <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15/dist/smooth-scroll.polyfills.min.js"></script>
     <!-- Swiper JS -->
-    <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <!-- AOS JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!-- Font Awesome -->
